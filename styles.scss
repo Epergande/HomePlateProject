@@ -11,42 +11,49 @@ body {
   color: var(--text);
   margin: 0;
 }
-.color-accent
-{
+
+.color-accent {
   color: $accent;
 }
+
 .background-main {
   background-color: $main;
   color: white;
   padding: 10px;
 }
+
 .input-width {
-    width: 50px;
+  width: 50px;
 }
+
 .border-accent {
   border: 2px solid $accent;
   border-radius: 10px;
 }
+
 .border-main {
-border: 2px solid $main;
-border-radius: 10px;
+  border: 2px solid $main;
+  border-radius: 10px;
 
 }
+
 .category-list {
- background-color: $main;
+  background-color: $main;
   gap: 20px;
   padding: 10px;
 }
+
 .btn-checkout {
-    background-color: $accent;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    font-weight: bold;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: $accent-fade 0.3s ease;
+  background-color: $accent;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: $accent-fade 0.3s ease;
 }
+
 nav {
   background-color: $main;
   color: white;

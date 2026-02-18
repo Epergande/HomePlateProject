@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HomePlate-Dugout</title>
     <!--    bootstrap styles-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,34 +25,39 @@
 
 </head>
 <body>
-<nav class="navbar ">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-        <a class="text-decoration-none text-white fs-2" href="index.html">
-            <img src="/media/Homeplate_Logo.png" alt="HomePlate Logo" height="48px" width="48px">
-
+        <a class="navbar-brand text-decoration-none text-white fs-2" href="index.html">
+            <img src="/media/Homeplate_Logo.png" alt="HomePlate Logo" height="48" width="48"
+                 class="d-inline-block align-top img-fluid">
             HomePlate.com
         </a>
-        <div class="input-group input-group-md w-50 mx-auto">
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                   aria-describedby="inputGroup-sizing-lg" placeholder="Search for products...">
-            <button class="btn btn-outline-secondary text-white" type="button" id="inputGroup-sizing-lg"><i
-                    class="bi bi-search"></i></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#cartNav"
+                aria-controls="cartNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="cartNav">
+            <div class="input-group input-group-md w-50 mx-auto my-2 my-lg-0">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                       aria-describedby="inputGroup-sizing-lg" placeholder="Search for products...">
+                <button class="btn btn-outline-secondary text-white" type="button" id="inputGroup-sizing-lg"><i
+                        class="bi bi-search"></i></button>
+            </div>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active link-secondary fs-3 text-white" aria-current="page"
+                       href="../HomePlateProject/cart.html"><i class="bi bi-cart3"></i></a>
+                </li>
+                <li class="nav-item ms-2">
+                    <a class="nav-link active link-secondary fs-3 text-white" aria-current="page" href="#"><i
+                            class="bi bi-heart"></i></a>
+                </li>
+                <li class="nav-item ms-2">
+                    <a class="nav-link active link-secondary fs-3 text-white" aria-current="page" href="#"><i
+                            class="bi bi-person-circle"></i></a>
+                </li>
+            </ul>
         </div>
-        <ul class="nav justify-content-end">
-
-            <li class="nav-item">
-                <a class="nav-link active link-secondary fs-3 text-white" aria-current="page"
-                   href="../HomePlateProject/cart.html"><i class="bi bi-cart3"></i></a>
-            </li>
-            <li>
-                <a class="nav-link active link-secondary fs-3 text-white" aria-current="page" href="#">
-                    <i class="bi bi-heart"></i></a>
-            </li>
-            <li>
-                <a class="nav-link active link-secondary fs-3 text-white" aria-current="page" href="#"><i
-                        class="bi bi-person-circle"></i></a>
-            </li>
-        </ul>
     </div>
 </nav>
 <div class="container mt-5 mb-5">
@@ -59,10 +66,10 @@
         <div class="col-lg-8">
             <h3>Your Shopping Cart</h3>
 
-            <!-- Cart Item 1 -->
+
             <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3">
                 <div class="d-flex">
-                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3">
+                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3 img-fluid">
                     <div>
                         <h5>Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
                         <p class="text-muted">Upgrade your setup behind the plate with the Rawlings Heart of the Hide
@@ -80,10 +87,10 @@
                 </div>
             </div>
 
-            <!-- Cart Item 1 -->
+
             <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3">
                 <div class="d-flex">
-                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3">
+                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3 img-fluid">
                     <div>
                         <h5>Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
                         <p class="text-muted">Upgrade your setup behind the plate with the Rawlings Heart of the Hide
@@ -99,10 +106,10 @@
                     <button class="btn btn-sm btn-danger">Remove</button>
                 </div>
             </div>
-            <!-- Cart Item 1 -->
+
             <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3">
                 <div class="d-flex">
-                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3">
+                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3 img-fluid">
                     <div>
                         <h5>Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
                         <p class="text-muted">Upgrade your setup behind the plate with the Rawlings Heart of the Hide
@@ -120,7 +127,7 @@
             </div>
         </div>
 
-        <!-- Cart Summary -->
+
         <div class="col-lg-4">
             <div class="cart-summary background-main border-accent">
                 <h4>Cart Summary</h4>
@@ -195,32 +202,31 @@
                 <form id="customerInfoForm">
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" >
+                        <input type="text" class="form-control" id="fullName">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" >
+                        <input type="email" class="form-control" id="email">
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" >
+                        <input type="tel" class="form-control" id="phone">
                     </div>
                     <div>
                         <label for="address" class="form-label">Shipping Address</label>
-                        <input type="text" class="form-control mb-2" id="address" placeholder="Street Address" >
-                        <input type="text" class="form-control mb-2" id="city" placeholder="City" >
-                        <input type="text" class="form-control mb-2" id="state" placeholder="State/Province" >
-                        <input type="text" class="form-control mb-2" id="zip" placeholder="ZIP/Postal Code" >
-                        <input type="text" class="form-control mb-2" id="country" placeholder="Country" >
+                        <input type="text" class="form-control mb-2" id="address" placeholder="Street Address">
+                        <input type="text" class="form-control mb-2" id="city" placeholder="City">
+                        <input type="text" class="form-control mb-2" id="state" placeholder="State/Province">
+                        <input type="text" class="form-control mb-2" id="zip" placeholder="ZIP/Postal Code">
+                        <input type="text" class="form-control mb-2" id="country" placeholder="Country">
                     </div>
                     <button type="button" id="orderNextBtn" class="btn btn-checkout">Next</button>
-                 </form>
+                </form>
 
             </div>
         </div>
     </div>
 </div>
-
 
 
 <!--Shipping information modal -->
@@ -265,27 +271,29 @@
                 <form>
                     <div class="mb-3">
                         <label for="cardName" class="form-label">Cardholder Name</label>
-                        <input type="text" class="form-control" id="cardName" >
+                        <input type="text" class="form-control" id="cardName">
                     </div>
                     <div class="mb-3">
                         <label for="cardNumber" class="form-label">Card Number</label>
-                        <input type="text" class="form-control" id="cardNumber" >
+                        <input type="text" class="form-control" id="cardNumber">
                     </div>
                     <div class="mb-3">
                         <label for="expiryDate" class="form-label">Expiry Date</label>
-                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" >
+                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
                     </div>
                     <div class="mb-3">
                         <label for="cvv" class="form-label">CVV</label>
-                        <input type="text" class="form-control" id="cvv" >
+                        <input type="text" class="form-control" id="cvv">
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="saveCardInfo">
-                        <label class="form-check-label" for="saveCardInfo">Save card information for future purchases</label>
+                        <label class="form-check-label" for="saveCardInfo">Save card information for future
+                            purchases</label>
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="billingSameAsShipping">
-                        <label class="form-check-label" for="billingSameAsShipping">Billing address same as shipping address</label>
+                        <label class="form-check-label" for="billingSameAsShipping">Billing address same as shipping
+                            address</label>
 
                     </div>
                 </form>
