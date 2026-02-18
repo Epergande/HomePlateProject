@@ -1,0 +1,91 @@
+$main: #317F45;
+$accent: #E0EC55;
+$accent-fade: rgba(224, 236, 85, 0.7);
+$text: #333232;
+$off-white: #F4F4F4;
+$link: #BBC7CE;
+
+body {
+  font-family: Oswald;
+  background-color: $off-white;
+  color: var(--text);
+  margin: 0;
+}
+.color-accent
+{
+  color: $accent;
+}
+.background-main {
+  background-color: $main;
+  color: white;
+  padding: 10px;
+}
+.input-width {
+    width: 50px;
+}
+.border-accent {
+  border: 2px solid $accent;
+  border-radius: 10px;
+}
+.border-main {
+border: 2px solid $main;
+border-radius: 10px;
+
+}
+.category-list {
+ background-color: $main;
+  gap: 20px;
+  padding: 10px;
+}
+.btn-checkout {
+    background-color: $accent;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: $accent-fade 0.3s ease;
+}
+nav {
+  background-color: $main;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+
+  align-items: center;
+}
+
+.h-50 {
+  height: 50px;
+}
+
+footer {
+  background-color: $main;
+  color: white;
+  padding: 20px;
+}
+
+//.btn-primary {
+//  background-color: $accent;
+//  color: $text;
+//  padding: 12px 24px;
+//  border: none;
+//  font-weight: bold;
+//  border-radius: 4px;
+//  cursor: pointer;
+//  transition: background 0.3s ease;
+//}
+//
+//.btn-primary:hover {
+//  background-color: $main;
+//  color: white;
+//}
+//
+///* Product Cards */
+//.product-card {
+//  background-color: white;
+//  border: 1px solid $link;
+//  border-radius: 8px;
+//  padding: 15px;
+//}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePlate-Home</title>
+
+    <!--    bootstrap styles-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!--bootstrap JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+    <!--bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+    <!--    Custom Styles-->
+    <link rel="stylesheet" href="styles.css">
+
+    <!--    Google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+<nav class="navbar ">
+    <div class="container-fluid">
+        <a class="text-decoration-none text-white fs-2" href="index.html">
+
+            <img src="/media/Homeplate_Logo.png" alt="HomePlate Logo" height="48px" width="48px">
+            HomePlate.com
+        </a>
+        <div class="input-group input-group-md w-50 mx-auto">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-lg" placeholder="Search for products...">
+            <button class="btn btn-outline-secondary text-white" type="button" id="inputGroup-sizing-lg"><i
+                    class="bi bi-search"></i></button>
+        </div>
+        <ul class="nav justify-content-end">
+
+            <li class="nav-item">
+                <a class="nav-link active link-secondary fs-3 text-white" aria-current="page"
+                   href="../HomePlateProject/cart.html">
+                    <i class="bi bi-cart3"></i></a>
+            </li>
+            <li>
+                                  <button type="button"
+                            class="btn nav-link active link-secondary fs-3 text-white"
+                            data-bs-container="body"
+                            data-bs-toggle="popover"
+                            data-bs-placement="bottom"
+                            data-bs-html="true"
+                            data-bs-trigger="focus"
+                            data-bs-content="<div class='d-flex flex-column align-items-center'>
+
+                             <a  class='btn background-main text-white btn-sm mb-2' data-bs-toggle='modal' data-bs-target='#wishListModal'>View Wishlist</a>
+                              <a  class='btn background-main text-white btn-sm mb-2' data-bs-toggle='modal' data-bs-target='#pOrdersModal'>Previous Orders</a>
+
+                            </div>">
+                    <i class="bi bi-heart"></i>
+                    </button>
+
+            </li>
+
+            <li>
+                <button type="button"
+                        class="btn nav-link active link-secondary fs-3 text-white"
+                        data-bs-container="body"
+                        data-bs-toggle="popover"
+                        data-bs-placement="bottom"
+                        data-bs-html="true"
+                        data-bs-trigger="focus"
+                        data-bs-content="<div class='d-flex flex-column align-items-center'>
+
+                          <a  class='btn background-main text-white btn-sm mb-2 ' data-bs-toggle='modal' data-bs-target='#signUpModal'>Sign up</a>
+                            <a  class='btn background-main text-white btn-sm mb-2' data-bs-toggle='modal' data-bs-target='#logInModal'>Log in</a>
+                            <a  class='btn background-main text-white btn-sm mb-2'>Log out</a>
+
+                          </div>">
+                    <i class="bi bi-person-circle"></i>
+                </button>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="category-list text-white">
+    <div>
+        Search By Category
+        <a href="#" class="text-white text-decoration-none mx-3">Bats</a>
+        <a href="#" class="text-white text-decoration-none mx-3">Balls</a>
+        <a href="#" class="text-white text-decoration-none mx-3">Gloves</a>
+        <a href="#" class="text-white text-decoration-none mx-3">Apparel</a>
+        <a href="#" class="text-white text-decoration-none mx-3">Protective Gear</a>
+        <a href="#" class="text-white text-decoration-none mx-3">Batting Gloves</a>
+        <a href="#" class="text-white text-decoration-none mx-3">Custom Jerseys</a>
+        <a href="#" class="text-white text-decoration-none mx-3">Catching Gear</a>
+
+
+    </div>
+</div>
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/media/carousel/stock1.jpg" class="d-block w-100 h-50" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/media/carousel/stock2.jpg" class="d-block w-100 h-50" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="media/carousel/stock3.jpg" class="d-block w-100 h-50" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="container mt-2">
+    <h2>Featured Items</h2>
+
+</div>
+<div class="row row-cols-1 row-cols-md-4 g-4 container mt-4 mx-auto ">
+    <div class="col">
+        <div class="card border-accent" style="max-width: 440px">
+            <img src="media/product_imgs/product-1.2.jpg" class="card-img-top" alt="Product Image">
+            <div class="card-body">
+                <h5 class="card-title">Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
+                <p class="card-text">Upgrade your setup behind the plate with the Rawlings Heart of the Hide Contour
+                    Catcher’s Mitt.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="h5 mb-0">$299.99</span>
+                    <div>
+                        <button class=" btn  fs-5 "><i class="bi bi-cart-plus"></i></button>
+                        <button class="  btn fs-5"><i class="bi bi-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card border-accent" style="max-width: 440px">
+            <img src="media/product_imgs/product-1.2.jpg" class="card-img-top" alt="Product Image">
+            <div class="card-body">
+                <h5 class="card-title">Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
+                <p class="card-text">Upgrade your setup behind the plate with the Rawlings Heart of the Hide Contour
+                    Catcher’s Mitt.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="h5 mb-0">$299.99</span>
+                    <div>
+                        <button class=" btn  fs-5 "><i class="bi bi-cart-plus"></i></button>
+                        <button class="  btn fs-5"><i class="bi bi-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card border-accent" style="max-width: 440px">
+            <img src="media/product_imgs/product-1.2.jpg" class="card-img-top" alt="Product Image">
+            <div class="card-body">
+                <h5 class="card-title">Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
+                <p class="card-text">Upgrade your setup behind the plate with the Rawlings Heart of the Hide Contour
+                    Catcher’s Mitt.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="h5 mb-0">$299.99</span>
+                    <div>
+                        <button class=" btn  fs-5 "><i class="bi bi-cart-plus"></i></button>
+                        <button class="  btn fs-5"><i class="bi bi-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card border-accent" style="max-width: 440px">
+            <img src="media/product_imgs/product-1.2.jpg" class="card-img-top" alt="Product Image">
+            <div class="card-body">
+                <h5 class="card-title">Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
+                <p class="card-text">Upgrade your setup behind the plate with the Rawlings Heart of the Hide Contour
+                    Catcher’s Mitt.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="h5 mb-0">$299.99</span>
+                    <div>
+                        <button class=" btn  fs-5 "><i class="bi bi-cart-plus"></i></button>
+                        <button class="  btn fs-5"><i class="bi bi-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="mt-5">
+    <div class="container justify-content-center">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5>About Us</h5>
+                <p>HomePlate is your one-stop shop for all your baseball equipment and jersey needs!</p>
+
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-white">Home</a></li>
+                    <li><a href="#" class="text-decoration-none text-white">Services</a></li>
+                    <li><a href="#" class="text-decoration-none text-white">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-3 ">
+                <h5>Follow Us</h5>
+                <ul class="list-inline social-icons">
+                    <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>&copy; 2026 HomePlate Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--Modals-->
+<!--sign up modal-->
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="signUpModalLabel">Create Account</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="signUpEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="signUpEmail">
+                        <div class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signUpUsername" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="signUpUsername">
+                    </div>
+                    <div class="mb-3">
+                        <label for="signUpPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signUpPassword">
+                    </div>
+
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn background-main">Join the team</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--    Log in Modal-->
+    <div class="modal fade" id="logInModal" tabindex="-1" aria-labelledby="logInModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="logInModalLabel">Log In</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="logInUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="logInUsername">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="logInPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="logInpassword">
+                        </div>
+
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn background-main">Log In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Wishlist Modal-->
+<div class="modal fade" id="wishListModal" tabindex="-1" aria-labelledby="wishListModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="wishListModalLabel">Your Wishlist</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Your wishlist is currently empty. Start adding your favorite items to see them here!</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--Previous order modal-->
+<div class="modal fade" id="pOrdersModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="myModalLabel">Previous Orders</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>You have not placed any orders yet. Start shopping to see your order history here!</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+<script src="index.js"></script>
+</html>
+

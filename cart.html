@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePlate-Dugout</title>
+    <!--    bootstrap styles-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!--bootstrap JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+    <!--bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+    <!--    Custom Styles-->
+    <link rel="stylesheet" href="styles.css">
+
+    <!--    Google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar ">
+    <div class="container-fluid">
+        <a class="text-decoration-none text-white fs-2" href="index.html">
+            <img src="/media/Homeplate_Logo.png" alt="HomePlate Logo" height="48px" width="48px">
+
+            HomePlate.com
+        </a>
+        <div class="input-group input-group-md w-50 mx-auto">
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-lg" placeholder="Search for products...">
+            <button class="btn btn-outline-secondary text-white" type="button" id="inputGroup-sizing-lg"><i
+                    class="bi bi-search"></i></button>
+        </div>
+        <ul class="nav justify-content-end">
+
+            <li class="nav-item">
+                <a class="nav-link active link-secondary fs-3 text-white" aria-current="page"
+                   href="../HomePlateProject/cart.html"><i class="bi bi-cart3"></i></a>
+            </li>
+            <li>
+                <a class="nav-link active link-secondary fs-3 text-white" aria-current="page" href="#">
+                    <i class="bi bi-heart"></i></a>
+            </li>
+            <li>
+                <a class="nav-link active link-secondary fs-3 text-white" aria-current="page" href="#"><i
+                        class="bi bi-person-circle"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <!-- Shopping Cart Items -->
+        <div class="col-lg-8">
+            <h3>Your Shopping Cart</h3>
+
+            <!-- Cart Item 1 -->
+            <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3">
+                <div class="d-flex">
+                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3">
+                    <div>
+                        <h5>Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
+                        <p class="text-muted">Upgrade your setup behind the plate with the Rawlings Heart of the Hide
+                            ContoUR Catcher’s Mitt.</p>
+                        <input type="number" class="form-control input-width " value="1">
+                    </div>
+                </div>
+                <div class="d-flex flex-column justify-content-between">
+                    <span>$299.99</span>
+
+                    <a class="active link-secondary fs-3 text-white text-end" aria-current="page" href="#">
+                        <i class="bi bi-heart"></i></a>
+
+                    <button class="btn btn-sm btn-danger">Remove</button>
+                </div>
+            </div>
+
+            <!-- Cart Item 1 -->
+            <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3">
+                <div class="d-flex">
+                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3">
+                    <div>
+                        <h5>Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
+                        <p class="text-muted">Upgrade your setup behind the plate with the Rawlings Heart of the Hide
+                            ContoUR Catcher’s Mitt.</p>
+                        <input type="number" class="form-control input-width" value="1">
+                    </div>
+                </div>
+                <div class="d-flex flex-column justify-content-between">
+                    <span>$299.99</span>
+
+                    <a class="active link-secondary fs-3 text-white text-end" aria-current="page" href="#">
+                        <i class="bi bi-heart"></i></a>
+                    <button class="btn btn-sm btn-danger">Remove</button>
+                </div>
+            </div>
+            <!-- Cart Item 1 -->
+            <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3">
+                <div class="d-flex">
+                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3">
+                    <div>
+                        <h5>Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
+                        <p class="text-muted">Upgrade your setup behind the plate with the Rawlings Heart of the Hide
+                            ContoUR Catcher’s Mitt.</p>
+                        <input type="number" class="form-control input-width" value="1">
+                    </div>
+                </div>
+                <div class="d-flex flex-column justify-content-between">
+                    <span>$299.99</span>
+
+                    <a class="active link-secondary fs-3 text-white text-end" aria-current="page" href="#">
+                        <i class="bi bi-heart"></i></a>
+                    <button class="btn btn-sm btn-danger">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="col-lg-4">
+            <div class="cart-summary background-main border-accent">
+                <h4>Cart Summary</h4>
+                <ul class="list-unstyled">
+                    <li class="d-flex justify-content-between">
+                        <span>Subtotal:</span>
+                        <span>$899.97</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                        <span>Shipping:</span>
+                        <span>$12.78</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                        <span class="total-price">Total:</span>
+                        <span class="total-price">$912.75</span>
+                    </li>
+                </ul>
+                <button class="btn btn-checkout w-100 color-white " data-bs-toggle='modal' data-bs-target='#orderModal'>
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="mt-5">
+    <div class="container justify-content-center">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5>About Us</h5>
+                <p>HomePlate is your one-stop shop for all your baseball equipment and jersey needs!</p>
+
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-white">Home</a></li>
+                    <li><a href="#" class="text-decoration-none text-white">Services</a></li>
+                    <li><a href="#" class="text-decoration-none text-white">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-3 ">
+                <h5>Follow Us</h5>
+                <ul class="list-inline social-icons">
+                    <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>&copy; 2026 HomePlate Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!--Order Modals-->
+
+
+<!--Customer Information Modal-->
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content background-main border-accent">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderModalLabel">Customer Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="customerInfoForm">
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" >
+                    </div>
+                    <div>
+                        <label for="address" class="form-label">Shipping Address</label>
+                        <input type="text" class="form-control mb-2" id="address" placeholder="Street Address" >
+                        <input type="text" class="form-control mb-2" id="city" placeholder="City" >
+                        <input type="text" class="form-control mb-2" id="state" placeholder="State/Province" >
+                        <input type="text" class="form-control mb-2" id="zip" placeholder="ZIP/Postal Code" >
+                        <input type="text" class="form-control mb-2" id="country" placeholder="Country" >
+                    </div>
+                    <button type="button" id="orderNextBtn" class="btn btn-checkout">Next</button>
+                 </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Shipping information modal -->
+<div class="modal fade" id="shippingModal" tabindex="-1" aria-labelledby="shippingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content background-main border-accent">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shippingModalLabel">Shipping information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <p>Shipping address: 800 Main Street, Pewaukee, WI 53072 </p>
+                </div>
+                <form id="shippingInfoForm">
+                    <div class="mb-3">
+                        <label for="shippingMethod" class="form-label">Shipping Method</label>
+                        <select class="form-select" id="shippingMethod" required>
+                            <option value="" disabled selected>Select a shipping method</option>
+                            <option value="standard">Standard Shipping (5-7 business days) - $12.78</option>
+                            <option value="express">Express Shipping (2-3 business days) - $24.99</option>
+                            <option value="overnight">Overnight Shipping (1 business day) - $39.99</option>
+                        </select>
+                    </div>
+                    <button type="button" id="shippingNextBtn" class="btn btn-checkout">Next</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Payment Modal-->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg background-main border-accent ">
+        <div class="modal-content background-main border-main">
+            <div class="modal-header">
+                <h5 class="model-title" id="paymentModalLabel">Payment</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="cardName" class="form-label">Cardholder Name</label>
+                        <input type="text" class="form-control" id="cardName" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="cardNumber" class="form-label">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="expiryDate" class="form-label">Expiry Date</label>
+                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cvv" >
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="saveCardInfo">
+                        <label class="form-check-label" for="saveCardInfo">Save card information for future purchases</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="billingSameAsShipping">
+                        <label class="form-check-label" for="billingSameAsShipping">Billing address same as shipping address</label>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <button type="button" id="paymentNextBtn" class="btn btn-checkout">Place Order</button>
+    </div>
+</div>
+<script src="index.js"></script>
+
+</body>
+</html>
