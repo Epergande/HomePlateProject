@@ -1,0 +1,67 @@
+body {
+  font-family: Oswald;
+  background-color: #F4F4F4;
+  color: var(--text);
+  margin: 0;
+}
+
+.color-accent {
+  color: #E0EC55;
+}
+
+.background-main {
+  background-color: #317F45;
+  color: white;
+  padding: 10px;
+}
+
+.input-width {
+  width: 50px;
+}
+
+.border-accent {
+  border: 2px solid #E0EC55;
+  border-radius: 10px;
+}
+
+.border-main {
+  border: 2px solid #317F45;
+  border-radius: 10px;
+}
+
+.category-list {
+  background-color: #317F45;
+  gap: 20px;
+  padding: 10px;
+}
+
+.btn-checkout {
+  background-color: #E0EC55;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: rgba(224, 236, 85, 0.7) 0.3s ease;
+}
+
+nav {
+  background-color: #317F45;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.h-50 {
+  height: 50px;
+}
+
+footer {
+  background-color: #317F45;
+  color: white;
+  padding: 20px;
+}
+
+/*# sourceMappingURL=styles.css.map */
