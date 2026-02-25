@@ -60,81 +60,51 @@
         </div>
     </div>
 </nav>
-<div class="container mt-5 mb-5">
+
+<div id="cartApp" class="container mt-5 mb-5">
     <div class="row">
         <!-- Shopping Cart Items -->
         <div class="col-lg-8">
             <h3>Your Shopping Cart</h3>
 
 
-            <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3">
+            <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3" v-for="(item, index) in cart" :key="item.id">
                 <div class="d-flex">
-                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3 img-fluid">
+                    <div class="ratio ratio-4x3 me-3" style="width:120px">
+                        <img :src="`media/product_imgs/${item.image}`"  class="card-img-top img-fluid object-fit-cover" alt="Product Image">
+                    </div>
                     <div>
-                        <h5>Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
-                        <p class="text-muted">Upgrade your setup behind the plate with the Rawlings Heart of the Hide
-                            ContoUR Catcher’s Mitt.</p>
-                        <input type="number" class="form-control input-width " value="1">
+                        <h5>{{item.name}}</h5>
+                        <p class="text-muted">{{item.description}}</p>
+                        <div class="input-group input-width">
+                            <button class="btn btn-sm btn-outline-secondary" @click="reduceItem(item.id)">-</button>
+                            <input type="number" class="form-control text-center" v-model.number="item.quantity" style="width:60px">
+                            <button class="btn btn-sm btn-outline-secondary" @click="addItem(item.id)">+</button>
+                        </div>
                     </div>
                 </div>
                 <div class="d-flex flex-column justify-content-between">
-                    <span>$299.99</span>
+                    <span>${{ (item.price * item.quantity).toFixed(2) }}</span>
 
                     <a class="active link-secondary fs-3 text-white text-end" aria-current="page" href="#">
                         <i class="bi bi-heart"></i></a>
 
-                    <button class="btn btn-sm btn-danger">Remove</button>
+                    <button class="btn btn-sm btn-danger" @click="removeItem(item.id)">Remove</button>
                 </div>
             </div>
 
 
-            <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3">
-                <div class="d-flex">
-                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3 img-fluid">
-                    <div>
-                        <h5>Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
-                        <p class="text-muted">Upgrade your setup behind the plate with the Rawlings Heart of the Hide
-                            ContoUR Catcher’s Mitt.</p>
-                        <input type="number" class="form-control input-width" value="1">
-                    </div>
-                </div>
-                <div class="d-flex flex-column justify-content-between">
-                    <span>$299.99</span>
 
-                    <a class="active link-secondary fs-3 text-white text-end" aria-current="page" href="#">
-                        <i class="bi bi-heart"></i></a>
-                    <button class="btn btn-sm btn-danger">Remove</button>
-                </div>
-            </div>
-
-            <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3">
-                <div class="d-flex">
-                    <img src="media/product_imgs/product-1.jpg" alt="Product" class="product-img me-3 img-fluid">
-                    <div>
-                        <h5>Heart of the Hide Contour Fit 32.5-Inch Catcher's Mitt</h5>
-                        <p class="text-muted">Upgrade your setup behind the plate with the Rawlings Heart of the Hide
-                            ContoUR Catcher’s Mitt.</p>
-                        <input type="number" class="form-control input-width" value="1">
-                    </div>
-                </div>
-                <div class="d-flex flex-column justify-content-between">
-                    <span>$299.99</span>
-
-                    <a class="active link-secondary fs-3 text-white text-end" aria-current="page" href="#">
-                        <i class="bi bi-heart"></i></a>
-                    <button class="btn btn-sm btn-danger">Remove</button>
-                </div>
-            </div>
         </div>
 
 
         <div class="col-lg-4">
-            <div class="cart-summary background-main border-accent">
+            <div class="cart-summary background-main border-accent p-3">
                 <h4>Cart Summary</h4>
                 <ul class="list-unstyled">
                     <li class="d-flex justify-content-between">
                         <span>Subtotal:</span>
-                        <span>$899.97</span>
+                        <span>${{ subtotal }}</span>
                     </li>
                     <li class="d-flex justify-content-between">
                         <span>Shipping:</span>
@@ -142,12 +112,13 @@
                     </li>
                     <li class="d-flex justify-content-between">
                         <span class="total-price">Total:</span>
-                        <span class="total-price">$912.75</span>
+                        <span class="total-price">${{ (parseFloat(subtotal) + 12.78).toFixed(2) }}</span>
                     </li>
                 </ul>
                 <button class="btn btn-checkout w-100 color-white " data-bs-toggle='modal' data-bs-target='#orderModal'>
                     Proceed to Checkout
                 </button>
+                <button class="btn btn-secondary w-100 mt-2" @click="clearCart">Clear Cart</button>
             </div>
         </div>
     </div>
@@ -302,6 +273,8 @@
         <button type="button" id="paymentNextBtn" class="btn btn-checkout">Place Order</button>
     </div>
 </div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="app.js"></script>
 <script src="index.js"></script>
 
 </body>
