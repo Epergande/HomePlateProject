@@ -33,7 +33,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg ">
+<nav class="navbar navbar-expand-lg " id="navModals" >
     <div class="container-fluid">
         <a class="navbar-brand text-decoration-none text-white fs-2" href="index.html">
 
@@ -60,7 +60,7 @@
                         <i class="bi bi-cart3"></i></a>
                 </li>
                 <li class="nav-item ms-2">
-                    <button type="button"
+                    <button @click="navModal()" type="button"
                             class="btn nav-link active link-secondary fs-3 text-white"
                             data-bs-container="body"
                             data-bs-toggle="popover"
@@ -69,7 +69,7 @@
                             data-bs-trigger="focus"
                             data-bs-content="<div class='d-flex flex-column align-items-center'>
 
-                             <a  class='btn background-main text-white btn-sm mb-2' data-bs-toggle='modal' data-bs-target='#wishListModal'>View Wishlist</a>
+                             <a   class='btn background-main text-white btn-sm mb-2' data-bs-toggle='modal' data-bs-target='#wishListModal'>View Wishlist</a>
                               <a  class='btn background-main text-white btn-sm mb-2' data-bs-toggle='modal' data-bs-target='#pOrdersModal'>Previous Orders</a>
 
                             </div>">
@@ -79,7 +79,7 @@
                 </li>
 
                 <li class="nav-item ms-2">
-                    <button type="button"
+                    <button @click="navModal()" type="button"
                             class="btn nav-link active link-secondary fs-3 text-white"
                             data-bs-container="body"
                             data-bs-toggle="popover"
@@ -152,7 +152,7 @@
                     <span class="h5 mb-0"></span>
                     <div>
                         <button class=" btn  fs-5 " @click="addProduct(item.id)"><i class="bi bi-cart-plus"></i></button>
-                        <button class="  btn fs-5"><i class="bi bi-heart"></i></button>
+                        <button class="  btn fs-5" @click="saveProductToSavedProducts(item.id)"><i class="bi bi-heart"></i></button>
                     </div>
                 </div>
             </div>
@@ -266,7 +266,30 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Your wishlist is currently empty. Start adding your favorite items to see them here!</p>
+                <p class="text-muted">
+                    Your wishlist is currently empty. Start adding gear here!
+                </p>
+
+<!--                <div v-else>-->
+<!--                    <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3"-->
+<!--                         v-for="(item, index) in cart" :key="item.id">-->
+<!--                        <div class="d-flex">-->
+<!--                            <div class="ratio ratio-4x3 me-3" style="width:120px">-->
+<!--                                <img :src="`media/product_imgs/${item.image}`"-->
+<!--                                     class="card-img-top img-fluid object-fit-cover" alt="Product Image">-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <h5>{{ item.name }}</h5>-->
+<!--                                <p class="text-muted">{{ item.description }}</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="d-flex flex-column justify-content-between">-->
+
+
+<!--                            <button class="btn btn-sm btn-danger" @click="removeItem(item.id)">Remove</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </div>
@@ -289,8 +312,8 @@
 </div>
 </body>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="app.js"></script>
-<script src="index.js"></script>
+<script src="vue-apps/app.js"></script>
+
 
 </html>
 

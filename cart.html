@@ -23,6 +23,7 @@
     <!--    Google font-->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
@@ -67,32 +68,38 @@
         <div class="col-lg-8">
             <h3>Your Shopping Cart</h3>
 
+            <p v-if="cart.length === 0" class="text-muted">
+                Your cart is currently empty. Start adding gear to your cart!
+            </p>
 
-            <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3" v-for="(item, index) in cart" :key="item.id">
-                <div class="d-flex">
-                    <div class="ratio ratio-4x3 me-3" style="width:120px">
-                        <img :src="`media/product_imgs/${item.image}`"  class="card-img-top img-fluid object-fit-cover" alt="Product Image">
-                    </div>
-                    <div>
-                        <h5>{{item.name}}</h5>
-                        <p class="text-muted">{{item.description}}</p>
-                        <div class="input-group input-width">
-                            <button class="btn btn-sm btn-outline-secondary" @click="reduceItem(item.id)">-</button>
-                            <input type="number" class="form-control text-center" v-model.number="item.quantity" style="width:60px">
-                            <button class="btn btn-sm btn-outline-secondary" @click="addItem(item.id)">+</button>
+            <div v-else>
+                <div class="cart-item d-flex justify-content-between mb-4 background-main border-accent p-3"
+                     v-for="(item, index) in cart" :key="item.id">
+                    <div class="d-flex">
+                        <div class="ratio ratio-4x3 me-3" style="width:120px">
+                            <img :src="`media/product_imgs/${item.image}`"
+                                 class="card-img-top img-fluid object-fit-cover" alt="Product Image">
+                        </div>
+                        <div>
+                            <h5>{{ item.name }}</h5>
+                            <p class="text-muted">{{ item.description }}</p>
+                            <div class="input-group input-width">
+                                <input type="number" class="form-control text-center" v-model.number="item.quantity"
+                                       @change="updateQuantity(item)" style="width:60px" min="1">
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="d-flex flex-column justify-content-between">
-                    <span>${{ (item.price * item.quantity).toFixed(2) }}</span>
+                    <div class="d-flex flex-column justify-content-between">
+                        <span>${{ (item.price * item.quantity).toFixed(2) }}</span>
 
-                    <a class="active link-secondary fs-3 text-white text-end" aria-current="page" href="#">
-                        <i class="bi bi-heart"></i></a>
+                        <a class="active link-secondary fs-3 text-white text-end" aria-current="page" href="#">
+                            <i class="bi bi-heart"></i></a>
 
-                    <button class="btn btn-sm btn-danger" @click="removeItem(item.id)">Remove</button>
+                        <button class="btn btn-sm btn-danger" @click="removeItem(item.id)">Remove</button>
+                    </div>
                 </div>
             </div>
-
 
 
         </div>
@@ -118,7 +125,7 @@
                 <button class="btn btn-checkout w-100 color-white " data-bs-toggle='modal' data-bs-target='#orderModal'>
                     Proceed to Checkout
                 </button>
-                <button class="btn btn-secondary w-100 mt-2" @click="clearCart">Clear Cart</button>
+
             </div>
         </div>
     </div>
@@ -160,122 +167,133 @@
 
 <!--Order Modals-->
 
+<div id="modals">
 
-<!--Customer Information Modal-->
-<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content background-main border-accent">
-            <div class="modal-header">
-                <h5 class="modal-title" id="orderModalLabel">Customer Information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="customerInfoForm">
-                    <div class="mb-3">
-                        <label for="fullName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="fullName">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="phone">
-                    </div>
-                    <div>
-                        <label for="address" class="form-label">Shipping Address</label>
-                        <input type="text" class="form-control mb-2" id="address" placeholder="Street Address">
-                        <input type="text" class="form-control mb-2" id="city" placeholder="City">
-                        <input type="text" class="form-control mb-2" id="state" placeholder="State/Province">
-                        <input type="text" class="form-control mb-2" id="zip" placeholder="ZIP/Postal Code">
-                        <input type="text" class="form-control mb-2" id="country" placeholder="Country">
-                    </div>
-                    <button type="button" id="orderNextBtn" class="btn btn-checkout">Next</button>
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!--Shipping information modal -->
-<div class="modal fade" id="shippingModal" tabindex="-1" aria-labelledby="shippingModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content background-main border-accent">
-            <div class="modal-header">
-                <h5 class="modal-title" id="shippingModalLabel">Shipping information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <p>Shipping address: 800 Main Street, Pewaukee, WI 53072 </p>
+    <!--Customer Information Modal-->
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content background-main border-accent">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Customer Information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="shippingInfoForm">
-                    <div class="mb-3">
-                        <label for="shippingMethod" class="form-label">Shipping Method</label>
-                        <select class="form-select" id="shippingMethod" required>
-                            <option value="" disabled selected>Select a shipping method</option>
-                            <option value="standard">Standard Shipping (5-7 business days) - $12.78</option>
-                            <option value="express">Express Shipping (2-3 business days) - $24.99</option>
-                            <option value="overnight">Overnight Shipping (1 business day) - $39.99</option>
-                        </select>
-                    </div>
-                    <button type="button" id="shippingNextBtn" class="btn btn-checkout">Next</button>
-                </form>
+                <div class="modal-body">
+                    <form id="customerInfoForm">
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        <div>
+                            <label for="address" class="form-label">Shipping Address</label>
+                            <input type="text" class="form-control mb-2" id="address" placeholder="Street Address">
+                            <input type="text" class="form-control mb-2" id="city" placeholder="City">
+                            <input type="text" class="form-control mb-2" id="state" placeholder="State/Province">
+                            <input type="text" class="form-control mb-2" id="zip" placeholder="ZIP/Postal Code">
+                            <input type="text" class="form-control mb-2" id="country" placeholder="Country">
+                        </div>
+                        <button type="button" id="orderNextBtn" class="btn btn-checkout" onclick="goToShipping()">Next
+                        </button>
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<!--Payment Modal-->
-<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-lg background-main border-accent ">
-        <div class="modal-content background-main border-main">
-            <div class="modal-header">
-                <h5 class="model-title" id="paymentModalLabel">Payment</h5>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="cardName" class="form-label">Cardholder Name</label>
-                        <input type="text" class="form-control" id="cardName">
+    <!--Shipping information modal -->
+    <div class="modal fade" id="shippingModal" tabindex="-1" aria-labelledby="shippingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content background-main border-accent">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="shippingModalLabel">Shipping information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <p>Shipping address: 800 Main Street, Pewaukee, WI 53072 </p>
                     </div>
-                    <div class="mb-3">
-                        <label for="cardNumber" class="form-label">Card Number</label>
-                        <input type="text" class="form-control" id="cardNumber">
-                    </div>
-                    <div class="mb-3">
-                        <label for="expiryDate" class="form-label">Expiry Date</label>
-                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
-                    </div>
-                    <div class="mb-3">
-                        <label for="cvv" class="form-label">CVV</label>
-                        <input type="text" class="form-control" id="cvv">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="saveCardInfo">
-                        <label class="form-check-label" for="saveCardInfo">Save card information for future
-                            purchases</label>
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="billingSameAsShipping">
-                        <label class="form-check-label" for="billingSameAsShipping">Billing address same as shipping
-                            address</label>
-
-                    </div>
-                </form>
+                    <form id="shippingInfoForm">
+                        <div class="mb-3">
+                            <label for="shippingMethod" class="form-label">Shipping Method</label>
+                            <select class="form-select" id="shippingMethod" required>
+                                <option value="" disabled selected>Select a shipping method</option>
+                                <option value="standard">Standard Shipping (5-7 business days) - $12.78</option>
+                                <option value="express">Express Shipping (2-3 business days) - $24.99</option>
+                                <option value="overnight">Overnight Shipping (1 business day) - $39.99</option>
+                            </select>
+                        </div>
+                        <button type="button" id="shippingNextBtn" class="btn btn-checkout" onclick="goToPayment()">
+                            Next
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-        <button type="button" id="paymentNextBtn" class="btn btn-checkout">Place Order</button>
     </div>
+
+
+    <!--Payment Modal-->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg background-main border-accent ">
+            <div class="modal-content background-main border-main">
+                <div class="modal-header">
+                    <h5 class="model-title" id="paymentModalLabel">Payment</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="cardName" class="form-label">Cardholder Name</label>
+                            <input type="text" class="form-control" id="cardName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label for="expiryDate" class="form-label">Expiry Date</label>
+                            <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cvv">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="saveCardInfo">
+                            <label class="form-check-label" for="saveCardInfo">Save card information for future
+                                purchases</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="billingSameAsShipping">
+                            <label class="form-check-label" for="billingSameAsShipping">Billing address same as shipping
+                                address</label>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="paymentNextBtn" class="btn btn-checkout">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="app.js"></script>
-<script src="index.js"></script>
+<script src="vue-apps/app.js"></script>
+
 
 </body>
 </html>
+
+
+
