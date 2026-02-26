@@ -85,7 +85,7 @@ Vue.createApp({
     },
     methods: {
         addProduct(id) {
-            const product = this.products.find(p => p.id == id);
+            const product = this.products.find(p => p.id === id);
 
 
             this.cart.push({...product, quantity: 1});
@@ -121,7 +121,7 @@ Vue.createApp({
 
         },
         reduceItem(id) {
-            const index = this.cart.findIndex(p => p.id == id);
+            const index = this.cart.findIndex(p => p.id === id);
 
             this.cart.splice(index, 1);
 
@@ -129,7 +129,7 @@ Vue.createApp({
             saveCartToStorage(this.cart);
         },
         removeItem(id) {
-            const idx = this.cart.findIndex(p => p.id == id);
+            const idx = this.cart.findIndex(p => p.id === id);
             if (idx !== -1) {
                 this.cart.splice(idx, 1);
 

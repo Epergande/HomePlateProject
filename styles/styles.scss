@@ -1,63 +1,76 @@
+$main: #317F45;
+$accent: #E0EC55;
+$accent-fade: rgba(224, 236, 85, 0.7);
+$text: #333232;
+$off-white: #F4F4F4;
+$link: #BBC7CE;
+
 body {
   font-family: Oswald;
-  background-color: #F4F4F4;
+  background-color: $off-white;
   color: var(--text);
   margin: 0;
 }
 
 .color-accent {
-  color: #E0EC55;
+  color: $accent;
 }
 
 .background-main {
-  background-color: #317F45;
+  background-color: $main;
   color: white;
   padding: 10px;
 }
 
 .input-width {
-  width: 50px;
+  width: 59px;
+  padding: 0;
 }
 
 .border-accent {
-  border: 2px solid #E0EC55;
+  border: 2px solid $accent;
   border-radius: 10px;
 }
 
 .border-main {
-  border: 2px solid #317F45;
+  border: 2px solid $main;
   border-radius: 10px;
+
 }
 
 .category-list {
-  background-color: #317F45;
+  background-color: $main;
   gap: 20px;
   padding: 10px;
 }
 
 .btn-checkout {
-  background-color: #E0EC55;
+  background-color: $accent;
   color: white;
   padding: 12px 24px;
   border: none;
   font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
-  transition: rgba(224, 236, 85, 0.7) 0.3s ease;
+  transition: $accent-fade 0.3s ease;
 }
 
 nav {
-  background-color: #317F45;
+  background-color: $main;
   color: white;
   padding: 15px 20px;
   display: flex;
+
   align-items: center;
 }
 
+
 footer {
-  background-color: #317F45;
+  background-color: $main;
   color: white;
   padding: 20px;
 }
 
-/*# sourceMappingURL=styles.css.map */
+
+
+
